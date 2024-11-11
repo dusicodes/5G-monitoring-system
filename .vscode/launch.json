@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:5G-monitoring-system}/network-monitoring-app",
+            "name": "Debug network-monitoring-app (network-monitoring-app)",
+            "program": "${workspaceFolder:5G-monitoring-system}/network-monitoring-app/.build/debug/network-monitoring-app",
+            "preLaunchTask": "swift: Build Debug network-monitoring-app (network-monitoring-app)"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:5G-monitoring-system}/network-monitoring-app",
+            "name": "Release network-monitoring-app (network-monitoring-app)",
+            "program": "${workspaceFolder:5G-monitoring-system}/network-monitoring-app/.build/release/network-monitoring-app",
+            "preLaunchTask": "swift: Build Release network-monitoring-app (network-monitoring-app)"
+        }
+    ]
+}
