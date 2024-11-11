@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct StatsView: View {
+    //test
     var body: some View {
         VStack {
             Image(systemName: "globe")
