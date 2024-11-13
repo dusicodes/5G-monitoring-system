@@ -6,31 +6,36 @@
 //
 
 import SwiftUI
-
+import Firebase
+import FirebaseAuth
 struct ContentView: View {
     @StateObject var locationManager = LocationManager()
-    
+    @State var userLoggedIn = (Auth.auth().currentUser != nil)
     var body: some View {
-        
-        TabView{
+        VStack{
+            if userLoggedIn {
+                MainApp()
+            }else {
+                LoginScreen()
+            }
             
-            StatsView()
-                .tabItem{
-                    Image(systemName: "chart.line.text.clipboard")
-                    Text("Stats")
+            
+        }.onAppear{
+            Auth.auth().addStateDidChangeListener { auth, user in
+                if (user != nil){
+                    userLoggedIn = true
+                }else {
+                    userLoggedIn = false
                 }
-            HomeView()
-                .tabItem{
-                    Image(systemName: "timer")
-                    Text("Home")
-                }
-            UserView()
-                .tabItem{
-                    Image(systemName: "person.crop.circle")
-                    Text("User")
-                }
+                
+            }
+            
         }
+        
     }
+}
+
+func checkAuthState(){
 }
 
 #Preview {
