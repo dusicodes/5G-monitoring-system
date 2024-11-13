@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2C8887CC2CE209EB00E45D7C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2C8887CB2CE209EB00E45D7C /* FirebaseAnalytics */; };
+		2CA8CA342CE3DF4200D1ACAB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2CA8CA332CE3DF4200D1ACAB /* FirebaseAuth */; };
+		2CA8CA362CE3DF4200D1ACAB /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 2CA8CA352CE3DF4200D1ACAB /* FirebaseCore */; };
+		2CA8CA382CE3DF4200D1ACAB /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 2CA8CA372CE3DF4200D1ACAB /* FirebaseDatabase */; };
+		2CA8CA3B2CE3DF8000D1ACAB /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 2CA8CA3A2CE3DF8000D1ACAB /* GoogleSignIn */; };
+		2CA8CA3D2CE3DF8000D1ACAB /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2CA8CA3C2CE3DF8000D1ACAB /* GoogleSignInSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +32,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CA8CA3B2CE3DF8000D1ACAB /* GoogleSignIn in Frameworks */,
 				2C8887CC2CE209EB00E45D7C /* FirebaseAnalytics in Frameworks */,
+				2CA8CA362CE3DF4200D1ACAB /* FirebaseCore in Frameworks */,
+				2CA8CA3D2CE3DF8000D1ACAB /* GoogleSignInSwift in Frameworks */,
+				2CA8CA382CE3DF4200D1ACAB /* FirebaseDatabase in Frameworks */,
+				2CA8CA342CE3DF4200D1ACAB /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +81,11 @@
 			name = "5G-Monitoring-app";
 			packageProductDependencies = (
 				2C8887CB2CE209EB00E45D7C /* FirebaseAnalytics */,
+				2CA8CA332CE3DF4200D1ACAB /* FirebaseAuth */,
+				2CA8CA352CE3DF4200D1ACAB /* FirebaseCore */,
+				2CA8CA372CE3DF4200D1ACAB /* FirebaseDatabase */,
+				2CA8CA3A2CE3DF8000D1ACAB /* GoogleSignIn */,
+				2CA8CA3C2CE3DF8000D1ACAB /* GoogleSignInSwift */,
 			);
 			productName = "5G-Monitoring-app";
 			productReference = 2C8887A92CE1E15F00E45D7C /* 5G-Monitoring-app.app */;
@@ -102,6 +117,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				2C8887CA2CE207EE00E45D7C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				2CA8CA392CE3DF8000D1ACAB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2C8887AA2CE1E15F00E45D7C /* Products */;
@@ -264,6 +280,7 @@
 				DEVELOPMENT_TEAM = 6QJHGSZ2U5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "-G-Monitoring-app-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -293,6 +310,7 @@
 				DEVELOPMENT_TEAM = 6QJHGSZ2U5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "-G-Monitoring-app-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -343,6 +361,14 @@
 				minimumVersion = 11.4.0;
 			};
 		};
+		2CA8CA392CE3DF8000D1ACAB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -350,6 +376,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2C8887CA2CE207EE00E45D7C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
+		};
+		2CA8CA332CE3DF4200D1ACAB /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C8887CA2CE207EE00E45D7C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		2CA8CA352CE3DF4200D1ACAB /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C8887CA2CE207EE00E45D7C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		2CA8CA372CE3DF4200D1ACAB /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2C8887CA2CE207EE00E45D7C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		2CA8CA3A2CE3DF8000D1ACAB /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CA8CA392CE3DF8000D1ACAB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		2CA8CA3C2CE3DF8000D1ACAB /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CA8CA392CE3DF8000D1ACAB /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
