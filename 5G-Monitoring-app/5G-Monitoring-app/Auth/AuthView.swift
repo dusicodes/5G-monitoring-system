@@ -9,10 +9,24 @@ import SwiftUI
 import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
-
+class User {
+     var name: String
+     var email: String
+     var photoURL: String
+    
+    init(parameters: (name: String, email: String, photoURL: String)) {
+        self.email = parameters.email
+        self.name = parameters.name
+        self.photoURL = parameters.photoURL
+    }
+    
+    
+}
 class AuthView: ObservableObject {
     
     @Published var isLoggedIn = false
+    @Published var currentUser: User?  // This will hold the user object after login
+        
     
     func signInWithGoogle(){
         
@@ -24,7 +38,7 @@ class AuthView: ObservableObject {
         GIDSignIn.sharedInstance.configuration = config
 
         // Start the sign in flow!
-        GIDSignIn.sharedInstance.signIn(withPresenting: Application_utility.rootViewController) {user, error in
+        GIDSignIn.sharedInstance.signIn(withPresenting: Application_utility.rootViewController){user, error in
           if let error = error  {
               print(error.localizedDescription)
               return
@@ -50,6 +64,7 @@ class AuthView: ObservableObject {
                 
                 guard let user = result?.user else { return }
                 print(user)
+                
             }
                 
 
