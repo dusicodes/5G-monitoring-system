@@ -20,8 +20,10 @@ struct MainApp: View {
             HomeView()
                 .tabItem{
                     Image(systemName: "timer")
+                        
                     Text("Home")
                 }
+                .foregroundStyle(.red)
             UserView()
                 .tabItem{
                     Image(systemName: "person.crop.circle")
