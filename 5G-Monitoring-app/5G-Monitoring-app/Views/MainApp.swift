@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainApp: View {
+    @StateObject var locationManager = LocationManager()
     var body: some View {
         
         TabView{

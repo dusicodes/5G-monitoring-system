@@ -9,12 +9,17 @@ import SwiftUI
 import CoreLocation
 
 struct HomeView: View {
+    @StateObject var locationManager = LocationManager()
+    private var app = MainApp()
     var body: some View {
         VStack {
+
             Button(action: {
-                printHello()
+                print("hello")
+                
             }){
                 Image(systemName: "antenna.radiowaves.left.and.right")
+                //on tap check
                     .padding()
                     .font(.system(size: 80)) // Adjust the size of the symbol
                     .foregroundStyle(.white)
@@ -31,9 +36,6 @@ struct HomeView: View {
         }
         .padding()
     }
-}
-func printHello (){
-    print("Hi")
 }
 #Preview {
     HomeView()

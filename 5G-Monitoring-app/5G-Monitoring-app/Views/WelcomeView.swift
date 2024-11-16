@@ -1,9 +1,10 @@
 import SwiftUI
+import CoreLocationUI
 
 struct WelcomeView: View {
     @State private var selectedTab = 0  // Track the selected tab index
     @State private var showButton = false // State to control button visibility
-    @State private var navigateToLocation = false
+    @State private var showLocationModal = false
     var body: some View {
         NavigationStack{
             VStack {
@@ -20,18 +21,14 @@ struct WelcomeView: View {
                 .tabViewStyle(.page(indexDisplayMode: .always))
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
                 .onChange(of: selectedTab) { newTab in
-                    // Trigger the button to appear only when reaching the last tab
                     withAnimation {
                         showButton = newTab == 2
-                        navigateToLocation = true
                     }
                 }
-                
-                // Conditionally display the "Get Started" button with animation
                 if showButton {
-                    NavigationLink(destination: LocationViewUp()){
                         Button(action: {
                             print("Get Started tapped!")
+                            showLocationModal.toggle()
                             
                             // Perform the action (navigate or whatever you need)
                         }) {
@@ -48,13 +45,16 @@ struct WelcomeView: View {
                         .padding(.top, 20) // Space from the TabView
                         .transition(.move(edge: .bottom)) // Apply the transition for the button
                         .animation(.easeInOut, value: showButton) // Animate the appearance and disappearance of the button
-                    }
                 } else {
-                    // Make sure the button is fully removed from the view hierarchy
                     EmptyView()
                         .transition(.move(edge: .bottom)) // No need to animate disappearance since it's removed
                 }
+                    
+                
             }
+            .sheet(isPresented: $showLocationModal, content: {
+                LocationView()
+            })
 
         }
     }
@@ -83,20 +83,34 @@ struct OnboardingView: View {
     }
 }
 
-struct LocationViewUp : View {
+struct LocationView : View {
+    @StateObject var locationManager = LocationManager()
     var body : some View{
         VStack{
-            Text("You have navigated to the new view!")
-                .font(.title)
-                .padding()
+            Image(systemName: "location.square.fill")
+                .resizable()
+                .frame(width: 100, height: 100)
+                .padding(.bottom)
+            Text("Enable Location Access")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .multilineTextAlignment(.center)
+                .padding(.bottom, 20)
+            Text("To provide accurate 5G signal monitoring we need access you location.")
+                .font(.body)
+                .multilineTextAlignment(.center)
+                .padding(.bottom)
+            LocationButton(.shareCurrentLocation, action: {
+                locationManager.requestLocation()
+            })
+            .cornerRadius(30)
+            .foregroundStyle(.white)
+            .padding()
+        
             
-            Spacer()
         }
         .padding()
         .background(Color.white)
-        .cornerRadius(20)
-        .shadow(radius: 10)
-        .transition(.move(edge: .bottom)) // Slide up transition
         
 
     }

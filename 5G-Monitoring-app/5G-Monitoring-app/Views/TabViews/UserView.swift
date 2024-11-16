@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct UserView: View {
+   private var app = MainApp()
     var body: some View {
         VStack {
+            
             Text("Settings")
                 .font(.largeTitle) // Make the font large
                 .fontWeight(.semibold) // Bold for emphasis
                 .monospaced() // Monospaced font if preferred
+            if let location = app.locationManager.userLocation{
+                Text("You coordinates are: \(location.coordinate.latitude), \(location.coordinate.longitude)")
+            }
             Button {
                 Task {
                     AuthView().signOut()
