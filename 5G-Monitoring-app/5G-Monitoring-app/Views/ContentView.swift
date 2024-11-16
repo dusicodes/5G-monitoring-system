@@ -15,10 +15,15 @@ struct ContentView: View {
     var body: some View {
         VStack{
             if userLoggedIn {
-                WelcomeView()
-                //MainApp()
-            }else {
+                if locationManager.userLocation != nil{
+                    MainApp()
+                }else {
+                    WelcomeView()
+
+                }
+            }else{
                 LoginScreen()
+                
             }
             
         }.onAppear{

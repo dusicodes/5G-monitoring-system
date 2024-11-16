@@ -61,7 +61,7 @@ class AuthView: ObservableObject {
                 }
 
               // At this point, our user is signed in
-                
+                self.isLoggedIn = true
                 guard let user = result?.user else { return }
                 print(user)
                 
