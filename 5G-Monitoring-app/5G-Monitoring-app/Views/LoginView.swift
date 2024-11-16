@@ -14,12 +14,15 @@ struct LoginScreen: View {
     @State private var isLoggedIn = false
     var body: some View {
         NavigationStack{
-            Text("Sign In to Get Started!")
+            Text("Welcome To 5G Monitoring App")
+                .font(.largeTitle)
                 .monospaced()
                 .fontWeight(.black)
                 .bold()
                 .padding()
-            Button(action: vm.signInWithGoogle) {
+            Button(action: {
+                vm.signInWithGoogle()
+            } ) {
                 HStack {
                     // Google Logo (replace "google_logo" with the actual image name in your assets)
                     Image("google") // Use your own image for the Google logo
@@ -38,9 +41,6 @@ struct LoginScreen: View {
             }
             .frame(width: 250, height: 50) // Adjusts size to look like a standard Google button
             .shadow(radius: 3) // Optional: adds a shadow for depth
-            NavigationLink(value: isLoggedIn){
-                EmptyView()
-            }
             .navigationDestination(isPresented: $isLoggedIn){
                 ContentView()
                     .navigationBarBackButtonHidden(true)
