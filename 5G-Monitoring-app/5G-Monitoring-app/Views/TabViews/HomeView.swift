@@ -20,7 +20,7 @@ struct HomeView: View {
                     .foregroundStyle(.white)
             }
             .frame(width: 200, height: 200) // Make the button a circle with a fixed size
-            .background(Color.blue) // Background color of the button
+            .background(Color.black) // Background color of the button
             .clipShape(Circle()) // Clip the button to be circular
             .overlay(
                 Circle().stroke(Color.white, lineWidth: 4) // Optional border around the button
